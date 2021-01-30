@@ -1,0 +1,1 @@
+Here are the note and assignment for week1.
