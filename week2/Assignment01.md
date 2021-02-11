@@ -10,7 +10,16 @@
 * proper HTTP status code
 * using unit and/or integration tests
 * only support **Token-Based** authen and not Session
-  
+
+---
+
+ignore **account_created** and **account_updated** in **paylaods**
+time stamps are set only when create or update is successful.
+a user can only update their own account information.
+user email already exist return **400**
+store password using **BCrypt** with **Salt**
+enforce strong password as recommened by **NIST**
+
 
 ## Schema
 ```
@@ -29,7 +38,7 @@ User{
             string($password)
             example: skdjfhskdfjhg
             writeOnly: true
-    username*	
+    username*	// email adress
             string($email)
             example: jane.doe@example.com
     account_created	
@@ -43,3 +52,27 @@ User{
  
 }
 ```
+
+### Logic
+#### service.js
+```
+async function authenticate({ username, password }) {
+    const user = users.find(u => u.username === username && u.password === password);
+    if (user) {
+        const { password, ...userWithoutPassword } = user;
+        return userWithoutPassword;
+    }
+}
+```
+
+#### controller.js
+```
+function authenticate(req, res, next) {
+    userService.authenticate(req.body)
+        .then(user => user ? res.json(user) : res.status(400).json({ message: 'Username or password is incorrect' }))
+        .catch(err => next(err));
+}
+```
+
+controller.authenticate(req.body) => service.authenticate({username, password}) => 
+users.find({where: }) if(user) const {userWithoutPassword} return userWithoutPassword;
