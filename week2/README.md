@@ -8,21 +8,21 @@ Why Test?
 * reduce the cost of making code changes
 * allow you to deliver code with confidence
 ---
-### Unit Tests
-#### What is Unit Test
+### *Unit Tests*
+#### What is *Unit Test*
 * Unit tests should not require access to any external systems such as network, databases
 * all external systems such as database, file server, etc, are mocked out using specific test APIs and test data.
-* 模拟所有系统外的东西，
+* 模拟所有系统外的东西，假的输入输出和环境
 * isolate parts of programs
 * verify that independent part of programs are working correctly
 * fast and reliable
 * drawbacks
-  * take time to bild
+  * take time to build
   * require maintenance
-* an incorrect unit test can let bug go thru unnoticed for long time
-* **Test always take longer than the code itself.**
+* an incorrect unit test can let bug go through unnoticed for long time
+* **Time for Test always take longer than the code itself.**
 ---
-### Integration Test
+### *Integration Test*
 Integration tests verify that interaction between multiple components(applications, services, modules, etc.) is working as expected.
 #### Challenges
 * difficult to test all critical paths
@@ -31,13 +31,24 @@ Integration tests verify that interaction between multiple components(applicatio
 
 ### Performance/Load/Stress Testing
 * Simulate a heavy load on a server, network or object to test its strength or to analyze overall performance under different load types.
-* Load testing is also a way to perform a functional test on websites, databases, LDAPS, webservices, etc.
+* ***Load testing*** is also a way to perform a **functional test** on websites, databases, LDAPS(Lightweight Directory Access Protocol), webservices, etc.
   
-right size for the file, you can do capacity planning without having an environment.
+right size for the file, you can do **capacity planning** (容量计划) without having an environment.
 
 ## Version Control
- 
-Distributed Version Control Systems
+
+### Local Version Control
+RCS Revision Control system
+SCCS Source Code Control System
+
+### Centralized Version Control
+CVS
+SVN
+Perforce
+(if server shutdown you cannot make any operation)
+### Distributed Version Control Systems
+You don't have to talk to server everytime, the information is stored locally, only when you want to distribute to others, you pushed the changes to server.
+
 * git
 * mercurial
 * bazaar
@@ -46,6 +57,7 @@ Distributed Version Control Systems
  distributed version control systems were not proprietary
 
 CVS, SVN tracking changes w/differences, process become slower and slower
+
 Git tracking changes w/Snapshots
 when you compare for diff they compute delta of the files 
 
