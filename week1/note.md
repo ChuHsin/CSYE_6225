@@ -1,3 +1,54 @@
+## The Shell
+The Bootloader: software manages boot process
+The kernel: The Linux, manages the CPU, memory, and peripheral devices. Lowest Level of the OS
+Daemons: Background Services
+Desktop Environment
+The Shell: a command process
+  - pwd, cd, ls -l -al
+  - cp, mv, mkdir, rm -r
+  - ln, hard link, indistinguishable from the file itself, you will see no special indication of the link
+  - ln, soft symbolic links, contains a text pointer to the referenced file or directory.
+
+I/O Redirection
+Redirect output
+   - `>` redirect to another file instead of the screen
+   - `2>` redirect standard Error
+   - `ls -l > ls-std-out0-err-output.txt 2>&1`
+   - `/dev/null` black hole
+   - cat
+   - head -n3 // first 3 lines
+   - tail -n3 // last 3 lines
+   - tail -f // follow files in real-time
+   - | pipeline, output of first command becomes std input of second command
+   - grep // priont lines matching a pattern
+
+Permissions, 9 permission bits, Read, write, execute(x)
+Owner | Group | World
+  - chmod // change file mode
+  - su // run a shell with substitute user and group IDs
+  - sudo // execute a command as another user, does not require access to the superuser's password
+  - chown // change file owner and group
+  - passwd
+
+Process
+  - ps
+  - top // processes dynamically
+  - & // place in the background
+  - jobs // list background or suspended processes
+  - fg // return a process to the froeground
+  - kill // kill -9 <pid> forced kill
+  - shutdown
+  - nohup // run a command without hangups
+
+Misc
+  - tar // to archive a file
+  - zip
+  - unzip
+  - ssh // SSH client (remote login program)
+  - scp // secure copy
+
+---
+
 ## Editing with *vi*
 vim -- vi improved
 Running in Vi compatible mode: vim will run in a mode that is closer tohte normal behavior of vi rahter than the enhanced behavior of vim.
@@ -34,8 +85,10 @@ use `:` to enter the command mode
 ### Insert Edit Mode
  `esc + i`
 
- # Shell Scripts
- A shell script is a file containing a series of commands.
+---
+
+## Shell Scripts
+A shell script is a file containing a series of commands.
 
 Shell scripts and functions are both interpreted, they are not compiled.
 
